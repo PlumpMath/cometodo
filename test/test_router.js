@@ -1,24 +1,16 @@
 /*jslint indent: 2*/
 /*globals module*/
 
-var testCase = require('nodeunit').testCase;
-var sinon = require('sinon');
-var router = require('router');
+require('sinon-nodeunit');
+var router = require('router').create();
 
-module.exports = testCase({
-  setUp: function (callback) {
-    this.router = router.create();
-    callback();
-  },
-  
-  "should do routing asynchronously": function (test) {
-    var destination = sinon.stub();
-    this.router.addRoute("/", destination);
-    this.router.route("/");
-    test.ok(!destination.called);
-    process.nextTick(function () {
-      test.ok(destination.called);
-      test.done();
-    });
-  }
-});
+exports["should do routing asynchronously"] = function (test) {
+  var destination = test.stub();
+  router.addRoute("/", destination);
+  router.route("/");
+  test.notCalled(destination);
+  process.nextTick(function () {
+    test.called(destination);
+    test.done();
+  });
+};

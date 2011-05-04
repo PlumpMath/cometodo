@@ -1,4 +1,10 @@
-watch( 'test/test_.*\.js' )  {|md| system("./run_tests") }
-watch( 'lib/.*\.js' )  {|md| system("./run_tests") }
+def run_all_tests
+  system 'clear'
+  system './run_tests'
+end
 
-system("./run_tests")
+
+watch( 'test/test_.*\.js' )  {|md| run_all_tests }
+watch( 'lib/.*\.js' )  {|md| run_all_tests }
+
+run_all_tests

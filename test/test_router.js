@@ -12,13 +12,31 @@ module.exports = testCase({
   },
   
   "should do routing asynchronously": function (test) {
-    var destination = test.stub();
-    this.router.addRoute("/", destination);
+    var index = test.stub();
+    this.router.addRoute("/", index);
     this.router.route("/");
-    test.notCalled(destination);
+    test.notCalled(index);
     process.nextTick(function () {
-      test.called(destination);
+      test.called(index);
       test.done();
     });
+  },
+  
+  "should set default route": function (test) {
+    var def = test.stub();
+    this.router.setDefault(def);
+    this.router.route("/404.html");
+    process.nextTick(function () {
+      test.called(def);
+      test.done();
+    });
+  },
+  
+  "should fail fast without default route": function (test) {
+    test.throws(function () {
+      this.router.route("/404.html");
+    });
+    test.done();
   }
+  
 });

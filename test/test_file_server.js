@@ -42,25 +42,19 @@
     },
 
     "file not found: should respond with 404": function (test) {
-      var response = createDummyResponse(test);
-      yields(path, 'exists', [false]);
-      this.file_server.serve('/404.html', response);
+      var response = this.requestUnknownFile(test);
       test.calledWith(response.writeHead, 404);
       test.done();
     },
 
     "file not found: should write 404 error message": function (test) {
-      var response = createDummyResponse(test);
-      yields(path, 'exists', [false]);
-      this.file_server.serve('/404.html', response);
+      var response = this.requestUnknownFile(test);
       test.calledWith(response.write, '404 Not Found: ./public/404.html');
       test.done();
     },
 
     "file not found: should end response": function (test) {
-      var response = createDummyResponse(test);
-      yields(path, 'exists', [false]);
-      this.file_server.serve('/404.html', response);
+      var response = this.requestUnknownFile(test);
       test.called(response.end);
       test.done();
     },
@@ -102,6 +96,7 @@
       };
       this.file_server = file_server.create();
       this.serveExistingFile = serveExistingFile;
+      this.requestUnknownFile = requestUnknownFile;
       callback();
     },
 
@@ -124,6 +119,13 @@
     yields(path, 'exists', [true]);
     yields(fs, 'readFile', read_file_result);
     this.file_server.serve('/index.html', response);
+  }
+  
+  function requestUnknownFile(test) {
+    var response = createDummyResponse(test);
+    yields(path, 'exists', [false]);
+    this.file_server.serve('/404.html', response);
+    return response;
   }
   
 }());

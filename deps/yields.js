@@ -1,4 +1,4 @@
-module.exports = function yield(obj, method, args) {
+module.exports = function yields(obj, method, args) {
   obj[method] = function () {
     for (var i = 0; i < arguments.length; i++) {
       if (typeof arguments[i] === 'function') {

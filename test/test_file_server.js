@@ -67,15 +67,6 @@
       test.done();
     },
     
-    "file not found: can define own overriding callback": function (test) {
-      var callback = test.stub();
-      yields(path, 'exists', [false]);
-      this.file_server.onFileNotFound(callback);
-      this.file_server.serve();
-      test.called(callback);
-      test.done();
-    },
-    
     "can't read file: should respond with 500 internal server error": function (test) {
       var response = createDummyResponse(test);
       this.serveExistingFile(response, ['error', null]);

@@ -1,4 +1,4 @@
-/*jslint indent: 2*/
+/*jslint indent: 2, onevar: false*/
 /*globals module, require*/
 
 (function () {

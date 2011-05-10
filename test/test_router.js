@@ -14,7 +14,7 @@ module.exports = testCase({
   "should do routing asynchronously": function (test) {
     var index = test.stub();
     this.router.addRoute("/", index);
-    this.router.route("/");
+    this.router.route({url: "/"});
     test.notCalled(index);
     process.nextTick(function () {
       test.called(index);
@@ -25,7 +25,7 @@ module.exports = testCase({
   "should set default route": function (test) {
     var def = test.stub();
     this.router.setDefault(def);
-    this.router.route("/404.html");
+    this.router.route({url: "/404.html"});
     process.nextTick(function () {
       test.called(def);
       test.done();
@@ -34,9 +34,22 @@ module.exports = testCase({
   
   "should fail fast without default route": function (test) {
     test.throws(function () {
-      this.router.route("/404.html");
+      this.router.route({url: "/404.html"});
     });
     test.done();
-  }
+  },
+  
+  "should pass on request and response": function (test) {
+    var index = test.stub();
+    var request = {url: "/"};
+    var response = {};
+    this.router.addRoute("/", index);
+    this.router.route(request, response);
+    process.nextTick(function () {
+      test.calledWith(index, request, response);
+      test.done();
+    });
+  },
+  
   
 });

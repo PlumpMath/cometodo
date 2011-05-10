@@ -1,0 +1,20 @@
+body {background: #c4c4c0;}
+#main {width: 400px; margin: 0 auto; background: #e9e4e0; padding: 20px; text-align: center;}
+#newTodo {font-size: 20px; width: 383px; padding: 5px; display: block;}
+h1 {font-size: 40px; font-weight: bold;}
+.todos {text-align: left; margin-top: 20px;}
+.todos label {display: block;}
+.todos input {float: left; margin-right: 10px;}
+.todos span {float: left; width: 375px;}
+#todo {font-size: 20px;}
+#todo label {margin-bottom: 2px;}
+#todo input {margin-top: 5px;}
+#done {padding: 20px; border-top: 1px dashed #949490; margin: 20px -20px 0 -20px;}
+#done input {margin-top: 1px;}
+
+.todos label:after,
+.clearfix:after {visibility: hidden;display: block;font-size: 0;content: " ";clear: both;height: 0;}
+* html .todos label,
+* html .clearfix             { zoom: 1; } /* IE6 */
+*:first-child+html .todos label,
+*:first-child+html .clearfix { zoom: 1; } /* IE7 */

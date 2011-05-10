@@ -20,6 +20,14 @@
       test.done();
     },
     
+    "file found: should read as binary": function (test) {
+      yields(path, 'exists', [true]);
+      test.stub(fs, 'readFile');
+      this.file_server.serve('/index.html', null);
+      test.calledWith(fs.readFile, './public/index.html', 'binary');
+      test.done();
+    },
+    
     "file found: should respond with 200 OK": function (test) {
       var response = createDummyResponse(test);
       this.serveExistingFile(response, [null, 'file']);

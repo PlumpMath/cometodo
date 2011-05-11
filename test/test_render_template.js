@@ -19,6 +19,14 @@ module.exports = testCase({
       test.equals('Hello World!', html);
       test.done();
     });
-  }
+  },
+  
+  "should fail properly": function (test) {
+    renderTemplate('./bad_file_name', {}, function (err, html) {
+      test.ok(err);
+      test.done();
+    });
+  },
+  
   
 });

@@ -1,5 +1,5 @@
 /*jslint indent: 2*/
-/*globals module*/
+/*globals module, require*/
 
 require('sinon-nodeunit');
 var testCase = require('sinon-nodeunit/deps/nodeunit').testCase;
@@ -24,7 +24,7 @@ module.exports = testCase({
       test.equals(2, f.length);
     });
     test.done();
-  },
+  }
   
   
 });

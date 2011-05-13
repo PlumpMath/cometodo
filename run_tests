@@ -4,7 +4,7 @@ require.paths.push(__dirname);
 require.paths.push(__dirname + "/deps");
 require.paths.push(__dirname + "/lib");
 
-var reporter = require("sinon-nodeunit/deps/nodeunit").reporters.skip_passed;
+var reporter = require("sinon-nodeunit/deps/nodeunit").reporters.minimal;
 
 process.chdir(__dirname);
 reporter.run([

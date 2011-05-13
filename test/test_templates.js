@@ -10,13 +10,13 @@ module.exports = testCase({
     this.templates = templates.create('./test/resources/');
     callback();
   },
-  
+
   "should replace mustaches": function (test) {
     var obj = {name: 'World'};
     test.equals('Hello World!', this.templates.render('Hello {{name}}!', obj));
     test.done();
   },
-  
+
   "should call render on objects": function (test) {
     var obj = {item_collection: {
       render: function () { return "<li><li><li>"; }
@@ -27,7 +27,7 @@ module.exports = testCase({
   },
 
   "should find full path": function (test) {
-    test.equals('./test/resources/template.html.tmpl', 
+    test.equals('./test/resources/template.html.tmpl',
                 this.templates.pathTo('template'));
     test.done();
   },
@@ -45,7 +45,7 @@ module.exports = testCase({
       test.done();
     });
   },
-  
+
   "should serve template": function (test) {
     var response = {
       writeHead: function (code, headers) {
@@ -61,7 +61,7 @@ module.exports = testCase({
     };
     this.templates.serve('template', {}, response);
   },
-  
+
   "serve should fail with 500": function (test) {
     var response = {
       writeHead: function (code, headers) {
@@ -75,7 +75,7 @@ module.exports = testCase({
       }
     };
     this.templates.serve('unknown_file', {}, response);
-  },
-  
-  
+  }
+
+
 });

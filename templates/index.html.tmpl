@@ -12,16 +12,7 @@
 
   <h1>ComeTodo</h1>
   <input type="text" name="newTodo" value="" id="newTodo">
-  <div id="todo" class="todos">
-    <label><input type="checkbox"><span>Render todos on backend</span></label>
-    <label><input type="checkbox"><span>Use same code to render new todos on frontend</span></label>
-    <label><input type="checkbox"><span>Long poll for todos</span></label>
-  </div>
-  <div id="done" class="todos">
-    <label><input type="checkbox" checked> Create static file server</label>
-    <label><input type="checkbox" checked> Create simple router</label>
-    <label><input type="checkbox" checked> Publish to CloudFoundry</label>
-  </div>
+  {{todo_list}}
   
 </div>
 </body>

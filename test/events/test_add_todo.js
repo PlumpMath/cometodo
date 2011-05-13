@@ -16,18 +16,6 @@ module.exports = testCase({
     this.event.updateModel(todo_list);
     test.calledWith(todo_list.add, "join the army");
     test.done();
-  },
-  
-  "should serialize": function (test) {
-    test.equals('{"todo":"join the army"}', this.event.serialize());
-    test.done();
-  },
-  
-  "should deserialize": function (test) {
-    var serialized = this.event.serialize();
-    test.same(this.event, add_todo.deserialize(serialized));
-    test.done();
-  },
-  
+  }
   
 });

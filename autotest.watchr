@@ -1,10 +1,37 @@
-def run_all_tests
-  system 'clear'
-  system './run_tests'
+ENV["WATCHR"] = "1"
+system 'clear'
+
+def run(cmd)
+  `#{cmd}`
 end
 
-
-watch( 'test/.*test_.*\.js' )  {|md| run_all_tests }
-watch( 'lib/.*\.js' )  {|md| run_all_tests }
+def run_all_tests
+  system('clear')
+  result = run "./run_tests"
+  puts result
+end
 
 run_all_tests
+watch('.*.js') { run_all_tests }
+
+# Ctrl-\
+Signal.trap 'QUIT' do
+  puts " --- Running all tests ---\n\n"
+  run_all_tests
+end
+
+@interrupted = false
+
+# Ctrl-C
+Signal.trap 'INT' do
+  if @interrupted then
+    @wants_to_quit = true
+    abort("\n")
+  else
+    puts "Interrupt a second time to quit"
+    @interrupted = true
+    Kernel.sleep 1.5
+    # raise Interrupt, nil # let the run loop catch it
+    run_all_tests
+  end
+end

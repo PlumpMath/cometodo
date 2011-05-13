@@ -7,4 +7,9 @@ require.paths.push(__dirname + "/lib");
 var reporter = require("sinon-nodeunit/deps/nodeunit").reporters.skip_passed;
 
 process.chdir(__dirname);
-reporter.run(['test', 'test/controllers', 'test/models']);
+reporter.run([
+  'test', 
+  'test/controllers', 
+  'test/models',
+  'test/events'
+]);

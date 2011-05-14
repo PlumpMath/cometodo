@@ -6,7 +6,7 @@
 
   require('sinon-nodeunit');
   var testCase = require('sinon-nodeunit/deps/nodeunit').testCase;
-  var yields = require('yields');
+  var yields = require('./helpers/yields');
 
   var serveFile = require('serve_file');
   var path = require('path');

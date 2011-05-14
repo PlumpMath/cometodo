@@ -1,7 +1,7 @@
 #!/usr/local/bin/node
 
 require.paths.push(__dirname);
-require.paths.push(__dirname + "/deps");
+require.paths.push(__dirname + "/shared");
 require.paths.push(__dirname + "/lib");
 
 var reporter = require("sinon-nodeunit/deps/nodeunit").reporters.minimal;

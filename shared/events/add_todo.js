@@ -15,6 +15,10 @@ if (typeof module == "object" && typeof require == "function") {
 
     updateModel: function (todo_list) {
       todo_list.add(this.todo);
+    },
+    
+    updateDOM: function () {
+      $('<label><input type="checkbox"><span>' + this.todo + '</span></label>').prependTo("#todo");
     }
   });
 

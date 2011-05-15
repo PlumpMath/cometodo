@@ -3,7 +3,7 @@
 
 require('sinon-nodeunit');
 var testCase = require('sinon-nodeunit/deps/nodeunit').testCase;
-var event = require('events/event');
+var event = require('event');
 
 module.exports = testCase({
   "should be prototype for events": function (test) {

@@ -2,7 +2,7 @@ var CT = this.CT || {};
 CT.events = CT.events || {};
 
 if (typeof module == "object" && typeof require == "function") {
-  CT.event = require('./event');
+  CT.event = require('../event');
 }
 
 (function () {

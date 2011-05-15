@@ -1,6 +1,6 @@
 var CT = this.CT || {};
 
-if (typeof module == "object" && typeof require == "function") {
+if (typeof module === 'object' && typeof require === 'function') {
   var _ = require('underscore');
 }
 
@@ -19,7 +19,7 @@ if (typeof module == "object" && typeof require == "function") {
     }
   };
 
-  if (typeof module == "object") {
+  if (typeof module === 'object') {
     module.exports = CT.event;
   }
 }());

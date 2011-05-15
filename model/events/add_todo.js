@@ -1,7 +1,7 @@
 var CT = this.CT || {};
 CT.events = CT.events || {};
 
-if (typeof module == "object" && typeof require == "function") {
+if (typeof module === 'object' && typeof require === 'function') {
   CT.event = require('../event');
 }
 
@@ -22,7 +22,7 @@ if (typeof module == "object" && typeof require == "function") {
     }
   });
 
-  if (typeof module == "object") {
+  if (typeof module === 'object') {
     module.exports = CT.events.add_todo;
   }
 }());

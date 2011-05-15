@@ -8,8 +8,8 @@ var reporter = require("sinon-nodeunit/deps/nodeunit").reporters.minimal;
 
 process.chdir(__dirname);
 reporter.run([
+  'test/model',
   'test/server', 
   'test/server/controllers', 
-  'test/server/model',
   'test/server/events'
 ]);

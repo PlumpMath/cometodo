@@ -3,7 +3,7 @@
 
 require('sinon-nodeunit');
 var testCase = require('sinon-nodeunit/deps/nodeunit').testCase;
-var todo_list = require('models/todo_list');
+var todo_list = require('todo_list');
 
 module.exports = testCase({
   setUp: function (callback) {

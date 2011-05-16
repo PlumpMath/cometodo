@@ -88,17 +88,8 @@
       test.done();
     },
     
-    setUp: function (callback) {
-      this.realMethods = {
-        path_exists: path.exists,
-        fs_readFile: fs.readFile
-      };
-      callback();
-    },
-
     tearDown: function (callback) {
-      path.exists = this.realMethods.path_exists;
-      fs.readFile = this.realMethods.fs_readFile;
+      yields.restoreOriginals();
       callback();
     }    
   });

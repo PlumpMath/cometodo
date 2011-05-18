@@ -8,13 +8,18 @@
 </head>
 
 <body>
-<div id="main">
+  <div id="header">
+    <h1>ComeTodo</h1>
+    <form id="newTodo">
+      <input type="text" name="newTodoText" value="" id="newTodoText">
+    </form>
+  </div>
 
-  <h1>ComeTodo</h1>
-  <input type="text" name="newTodo" value="" id="newTodo">
   {{todo_list}}
   
-</div>
 </body>
-
+<script src="/application.js" type="text/javascript" charset="utf-8"></script>
+<script>
+  CT.todo_list_form.init();
+</script>
 </html>

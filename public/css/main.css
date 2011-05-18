@@ -1,15 +1,16 @@
-body {background: #c4c4c0;}
-#main {width: 400px; margin: 0 auto; background: #e9e4e0; padding: 20px; text-align: center;}
-#newTodo {font-size: 20px; width: 383px; padding: 5px; display: block;}
-h1 {font-size: 40px; font-weight: bold;}
+body {background: url(/images/bg.gif);}
+#header {background: url(/images/todo.gif); padding: 20px; text-align: center;}
+#newTodoText {font-size: 20px; width: 423px; padding: 5px; display: block; margin: 0 auto;}
+h1 {font-size: 40px; font-weight: bold; margin-bottom: 10px;}
 .todos {text-align: left; margin-top: 20px;}
 .todos label {display: block;}
 .todos input {float: left; margin-right: 10px;}
 .todos span {float: left; width: 375px;}
-#todo {font-size: 20px;}
-#todo label {margin-bottom: 2px;}
+#todo {font-size: 20px; background: url(/images/todo.gif); margin: 0; padding: 0 0 20px 0; border-bottom: 1px solid #000;}
+#todo label {margin: 0 auto; width: 400px; border-top: 1px solid #fff; border-bottom: 1px solid #ccc; padding: 5px 20px;}
 #todo input {margin-top: 5px;}
-#done {padding: 20px; border-top: 1px dashed #949490; margin: 20px -20px 0 -20px;}
+#done {padding: 20px; background: url(/images/done.gif) repeat-x; margin: 0; min-height: 280px;}
+#done label {margin: 0 auto; width: 400px; color: #333;}
 #done input {margin-top: 1px;}
 
 .todos label:after,

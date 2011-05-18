@@ -7,10 +7,10 @@ if (typeof module === 'object' && typeof require === 'function') {
 
 (function () {
   CT.events.add_todo = CT.event.create({
-    type: "add_todo",
     create: function (todo) {
       var self = Object.create(this);
       self.todo = todo;
+      self.type = "add_todo";
       return self;
     },
 

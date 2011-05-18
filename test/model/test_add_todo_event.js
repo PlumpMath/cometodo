@@ -12,7 +12,6 @@ modelTestCase("add todo event", module, {
       test.equals("add_todo", this.event.type);
       test.done();
     },
-    
 
     "should update model": function (test) {
       var todo_list = { add: test.stub() };

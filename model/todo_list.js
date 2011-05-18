@@ -22,7 +22,7 @@ if (typeof module === 'object' && typeof require === 'function') {
     },
 
     add: function (item) {
-      this.todo_items.push(item);
+      this.todo_items.unshift(item);
     },
 
     isTodo: function (item) {
@@ -30,7 +30,7 @@ if (typeof module === 'object' && typeof require === 'function') {
     },
 
     complete: function (item) {
-      this.done_items.push(item);
+      this.done_items.unshift(item);
       this.todo_items = _.reject(this.todo_items, function (i) {
         return i === item;
       });

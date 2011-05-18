@@ -10,8 +10,15 @@ var CT = CT || {};
     return false;
   }
   
+  function complete_todo() {
+    var text = $(this).closest("label").find("span").text();
+    var event = CT.events.complete_todo.create(text);
+    CT.event_handler.register(event);
+  }
+  
   function init() {
     $("#newTodo").bind("submit", add_todo);
+    $("#todo").delegate("input:checkbox", "click", complete_todo);
   }
   
   CT.todo_list_form = {

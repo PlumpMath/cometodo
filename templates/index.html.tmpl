@@ -21,7 +21,9 @@
 </body>
 <script src="/application.js" type="text/javascript" charset="utf-8"></script>
 <script>
-  CT.todo_list_form.init();
-  CT.event_handler.poll();
+  jQuery(function () {
+    CT.todo_list_form.init();
+    CT.event_handler.poll();
+  });
 </script>
 </html>

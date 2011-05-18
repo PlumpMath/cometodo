@@ -12,7 +12,7 @@ module.exports = {
   },
 
   render: function (template, data) {
-    return template.replace(/\{\{([\w\d _]+)\}\}/, function (mustache, key) {
+    return template.replace(/\{\{([\w\d _]+)\}\}/g, function (mustache, key) {
       var obj = data.hasOwnProperty(key) ? data[key] : mustache;
       return obj['render'] ? obj.render() : obj;
     });

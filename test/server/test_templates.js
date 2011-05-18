@@ -16,6 +16,12 @@ module.exports = testCase({
     test.equals('Hello World!', this.templates.render('Hello {{name}}!', obj));
     test.done();
   },
+  
+  "should replace multiple mustaches": function (test) {
+    var obj = {greeting: 'Hola', name: 'Hawaii'};
+    test.equals('Hola Hawaii!', this.templates.render('{{greeting}} {{name}}!', obj));
+    test.done();
+  },
 
   "should call render on objects": function (test) {
     var obj = {item_collection: {

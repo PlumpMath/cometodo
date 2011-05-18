@@ -1,3 +1,5 @@
+var url = require('url');
+
 var router = {
   create: function create() {
     var self = Object.create(this);
@@ -14,7 +16,8 @@ var router = {
   },
   
   route: function route(request, response) {
-    var callback = this.routes[request.url] || this.defaultCallback;
+    var pathname = url.parse(request.url).pathname;
+    var callback = this.routes[pathname] || this.defaultCallback;
     callback(request, response);
   }
 };

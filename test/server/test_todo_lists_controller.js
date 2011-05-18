@@ -23,5 +23,10 @@ module.exports = testCase({
     assertRoute('/register_event', test);
     test.done();
   },
-
+  
+  "should add route: /get_new_events.json": function (test) {
+    assertRoute('/get_new_events.json', test);
+    test.done();
+  },
+  
 });

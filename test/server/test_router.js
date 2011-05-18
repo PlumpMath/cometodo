@@ -19,6 +19,15 @@ module.exports = testCase({
     test.done();
   },
   
+  "should ignore parameters when routing": function (test) {
+    var index = test.stub();
+    this.router.addRoute("/index.html", index);
+    this.router.route({url: "/index.html?param=true"});
+    test.called(index);
+    test.done();
+  },
+  
+  
   "should set default route": function (test) {
     var def = test.stub();
     this.router.setDefault(def);

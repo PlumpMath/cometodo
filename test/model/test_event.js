@@ -30,6 +30,14 @@ modelTestCase("todo list", module, {
       var add_pet = this.event.create({ species: 'Cat' });
       test.same(add_pet, this.event.deserialize(add_pet.serialize()));
       test.done();
-    }
+    },
+    
+    "should deserialize from json": function (test) {
+      var add_pet = this.event.deserialize({ species: 'Dog' });
+      test.equals(add_pet.__proto__, this.event);
+      test.equals('Dog', add_pet.species);
+      test.done();
+    },
+    
   }
 });

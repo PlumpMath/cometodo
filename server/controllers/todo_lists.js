@@ -5,7 +5,8 @@ var loadPostedData = require('../load_posted_data');
 exports.addRoutes = function(router) {
   router.addRoute('/index.html', function (request, response) {
     templates.serve('index', {
-      todo_list: todo_list
+      todo_list: todo_list,
+      new_event_token: todo_list.length
     }, response);
   });
   

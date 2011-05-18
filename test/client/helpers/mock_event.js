@@ -1,4 +1,6 @@
-var mockEvent = { 
-  updateDOM: sinon.stub(),
-  serialize: sinon.stub().returns('{"type":"stub"}')
+function mockEvent () {
+  return { 
+    updateDOM: sinon.stub(),
+    serialize: sinon.stub().returns('{"type":"stub"}')
+  };
 };

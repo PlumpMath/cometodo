@@ -8,7 +8,7 @@
         </div>
       */
       CT.todo_list_form.init();
-      this.event = Object.create(mockEvent);
+      this.event = mockEvent();
       this.stub(complete_todo, 'create').returns(this.event);
     },
 

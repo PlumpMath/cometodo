@@ -17,9 +17,11 @@
 
   {{todo_list}}
   
+  <input type="hidden" id="new_event_token" value="{{new_event_token}}">
 </body>
 <script src="/application.js" type="text/javascript" charset="utf-8"></script>
 <script>
   CT.todo_list_form.init();
+  CT.event_handler.poll();
 </script>
 </html>

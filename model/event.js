@@ -15,7 +15,8 @@ if (typeof module === 'object' && typeof require === 'function') {
     },
 
     deserialize: function (serialized) {
-      return _.extend(Object.create(this), JSON.parse(serialized));
+      var data = typeof serialized === 'object' ? serialized : JSON.parse(serialized);
+      return _.extend(Object.create(this), data);
     }
   };
 

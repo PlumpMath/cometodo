@@ -11,25 +11,20 @@ module.exports = testCase({
     callback();
   },
   
-  "should do routing asynchronously": function (test) {
+  "should do routing synchronously": function (test) {
     var index = test.stub();
     this.router.addRoute("/", index);
     this.router.route({url: "/"});
-    test.notCalled(index);
-    process.nextTick(function () {
-      test.called(index);
-      test.done();
-    });
+    test.called(index);
+    test.done();
   },
   
   "should set default route": function (test) {
     var def = test.stub();
     this.router.setDefault(def);
     this.router.route({url: "/404.html"});
-    process.nextTick(function () {
-      test.called(def);
-      test.done();
-    });
+    test.called(def);
+    test.done();
   },
   
   "should fail fast without default route": function (test) {
@@ -45,10 +40,8 @@ module.exports = testCase({
     var response = {};
     this.router.addRoute("/", index);
     this.router.route(request, response);
-    process.nextTick(function () {
-      test.calledWith(index, request, response);
-      test.done();
-    });
+    test.calledWith(index, request, response);
+    test.done();
   },
   
   

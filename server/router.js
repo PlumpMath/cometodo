@@ -15,9 +15,7 @@ var router = {
   
   route: function route(request, response) {
     var callback = this.routes[request.url] || this.defaultCallback;
-    process.nextTick(function () {
-      callback(request, response);
-    });
+    callback(request, response);
   }
 };
 

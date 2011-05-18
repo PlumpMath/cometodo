@@ -3,7 +3,9 @@ var CT = CT || {};
 (function () {
   
   function add_todo() {
-    CT.events.add_todo.create($("#newTodoText").val());
+    var text = $("#newTodoText").val();
+    var event = CT.events.add_todo.create(text);
+    CT.event_handler.register(event);
     $("#newTodoText").val("");
     return false;
   }

@@ -7,4 +7,8 @@ exports.addRoutes = function(router) {
       todo_list: todo_list
     }, response);
   });
+  
+  router.addRoute('/register_event', function (request, response) {
+    
+  });
 };

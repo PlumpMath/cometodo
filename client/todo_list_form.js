@@ -3,8 +3,7 @@ var CT = CT || {};
 (function () {
   
   function add_todo() {
-    var todoText = $("#newTodoText").val();
-    CT.events.add_todo.create(todoText);
+    CT.events.add_todo.create($("#newTodoText").val());
     $("#newTodoText").val("");
     return false;
   }

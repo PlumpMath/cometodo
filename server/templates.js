@@ -3,6 +3,7 @@
 
 var fs = require('fs');
 var _ = require('underscore');
+var serveContentsCallback = require('./serve_contents_callback');
 
 module.exports = {
   create: function (directory) {
@@ -34,18 +35,8 @@ module.exports = {
   },
   
   serve: function (template_name, obj, response) {
-    this.load(template_name, obj, function (err, html) {
-      if (err) {
-        response.writeHead(500);
-        response.write(err);
-        response.end();
-        return;
-      }
-      response.writeHead(200, {
-        "Content-Type": "text/html"
-      });
-      response.write(html);
-      response.end();
-    });
+    this.load(template_name, obj, serveContentsCallback(response, {
+      "Content-Type": "text/html"
+    }));
   }
 };

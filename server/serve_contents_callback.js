@@ -1,4 +1,4 @@
-module.exports = function (response) {
+module.exports = function (response, headers) {
   return function (err, file) {
     if (err) {
       response.writeHead(500);
@@ -6,7 +6,7 @@ module.exports = function (response) {
       response.end();
       return;
     }
-    response.writeHead(200);
+    response.writeHead(200, headers || {});
     response.write(file, 'binary');
     response.end();
   };

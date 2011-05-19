@@ -15,8 +15,8 @@ function handleFileNotFound(file_path, response) {
   response.end();
 }
 
-function serveFile(url, response) {
-  var file_path = './public' + url;
+function serveFile(request, response) {
+  var file_path = './public' + request.url;
   path.exists(file_path, function (exists) {
     if (!exists) {
       handleFileNotFound(file_path, response);

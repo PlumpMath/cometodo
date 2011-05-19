@@ -15,7 +15,7 @@
   module.exports = testCase({
     "should look for files in public folder": function (test) {
       test.stub(path, 'exists');
-      serveFile('/index.html');
+      serveFile({ url: '/index.html' });
       test.calledWith(path.exists, './public/index.html');
       test.done();
     },
@@ -23,7 +23,7 @@
     "file found: should read as binary": function (test) {
       yields(path, 'exists', [true]);
       test.stub(fs, 'readFile');
-      serveFile('/index.html', null);
+      serveFile({ url: '/index.html' }, null);
       test.calledWith(fs.readFile, './public/index.html', 'binary');
       test.done();
     },
@@ -105,13 +105,13 @@
   function serveExistingFile(response, read_file_result) {
     yields(path, 'exists', [true]);
     yields(fs, 'readFile', read_file_result);
-    serveFile('/index.html', response);
+    serveFile({ url: '/index.html' }, response);
   }
   
   function requestUnknownFile(test) {
     var response = createDummyResponse(test);
     yields(path, 'exists', [false]);
-    serveFile('/404.html', response);
+    serveFile({ url: '/404.html' }, response);
     return response;
   }
   

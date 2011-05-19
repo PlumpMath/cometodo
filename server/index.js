@@ -3,9 +3,7 @@ var serveFile = require('./serve_file');
 var serveClientScripts = require('./serve_client_scripts');
 var router = require('./routes').router;
 
-router.setDefault(function (request, response) {
-  serveFile(request.url, response);
-});
+router.setDefault(serveFile);
 
 router.addRoute('/application.js', serveClientScripts);
 

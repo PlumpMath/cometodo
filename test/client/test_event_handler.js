@@ -18,7 +18,7 @@ TestCase('TestEventHandler', sinon.testCase({
   
   "test should poll for events": function () {
     this.stub(jQuery, 'ajax');
-    this.handler.poll();
+    this.handler.startPolling();
     assert(jQuery.ajax.called);
     var params = jQuery.ajax.getCall(0).args[0];
     assertEquals('get', params.type);
@@ -28,7 +28,7 @@ TestCase('TestEventHandler', sinon.testCase({
   
   "test should continue polling with new token": function () {
     this.stub(jQuery, 'ajax');
-    this.handler.poll();
+    this.handler.startPolling();
     var params = jQuery.ajax.getCall(0).args[0];
     params.success({new_event_token: 5});
     assert(jQuery.ajax.calledTwice);
@@ -38,7 +38,7 @@ TestCase('TestEventHandler', sinon.testCase({
   
   "test should update DOM with new events": function () {
     this.stub(jQuery, 'ajax');
-    this.handler.poll();
+    this.handler.startPolling();
     var params = jQuery.ajax.getCall(0).args[0];
     var events = [ mockEvent(), mockEvent() ];
     

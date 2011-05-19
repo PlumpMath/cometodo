@@ -1,5 +1,5 @@
 module.exports = function (response, headers) {
-  return function (err, file) {
+  return function (err, contents) {
     if (err) {
       response.writeHead(500);
       response.write(err.toString());
@@ -7,7 +7,7 @@ module.exports = function (response, headers) {
       return;
     }
     response.writeHead(200, headers || {});
-    response.write(file, 'binary');
+    response.write(contents, 'binary');
     response.end();
   };
 };

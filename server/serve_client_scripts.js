@@ -6,5 +6,5 @@ module.exports = function (request, response) {
     'model/',
     'model/events/',
     'client/'
-  ], /\.js$/, response)
+  ], /\.js$/, response);
 };

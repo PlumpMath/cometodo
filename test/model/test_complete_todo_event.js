@@ -26,7 +26,7 @@ modelTestCase("TestCompleteTodoEvent", module, {
     setUp: function () {
       /*:DOC += 
         <div>
-          <ul id='todo'><li>jam along</li></ul>
+          <ul id='todo'><li><input type='checkbox'>jam along</li></ul>
           <ul id='done'></ul>
         </div>
       */
@@ -37,6 +37,11 @@ modelTestCase("TestCompleteTodoEvent", module, {
       this.event.updateDOM();
       assertEquals(0, $("#todo li").length);
       assertEquals(1, $("#done li").length);
+    },
+    
+    "test should check checkbox": function () {
+      this.event.updateDOM();
+      assert($("#done :checkbox").is(":checked"));
     },
     
     "test shouldn't be confused by similar items": function () {

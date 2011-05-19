@@ -1,7 +1,7 @@
 body {background: url(/images/bg.gif);}
 #header {background: url(/images/todo.gif); padding: 20px; text-align: center;}
+#logo {margin: 20px 0;}
 #newTodoText {font-size: 20px; width: 423px; padding: 5px; display: block; margin: 0 auto;}
-h1 {font-size: 40px; font-weight: bold; margin-bottom: 10px;}
 .todos {text-align: left; margin-top: 20px;}
 .todos label {display: block;}
 .todos input {float: left; margin-right: 10px;}

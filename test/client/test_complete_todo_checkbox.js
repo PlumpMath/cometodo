@@ -4,7 +4,7 @@
     setUp: function () {
       /*:DOC += 
         <div id="todo">
-          <label><input type="checkbox"><span>sing along</span></label>
+          <li><input type="checkbox"><span>sing along</span></li>
         </div>
       */
       CT.todo_list_form.init();

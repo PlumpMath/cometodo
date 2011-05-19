@@ -20,7 +20,7 @@ if (typeof module === 'object' && typeof require === 'function') {
     
     updateDOM: function () {
       var my_text = this.todo;
-      $('#todo label').filter(function () {
+      $('#todo li').filter(function () {
         return $(this).text() === my_text;
       }).hide().prependTo("#done").fadeIn(500);
     }

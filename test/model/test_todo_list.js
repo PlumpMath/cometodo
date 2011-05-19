@@ -30,7 +30,7 @@ modelTestCase("todo list", module, {
 
     "should render empty todo lists": function (test) {
       test.equals(
-        '<div id="todo" class="todos"></div><div id="done" class="todos"></div>',
+        '<ul id="todo" class="todos"></ul><ul id="done" class="todos"></ul>',
         this.list.render()
       );
       test.done();
@@ -38,14 +38,14 @@ modelTestCase("todo list", module, {
 
     "should render todo items": function (test) {
       this.list.add("repair van");
-      test.ok(this.list.render().indexOf('<label><input type="checkbox"><span>repair van</span></label>') > -1);
+      test.ok(this.list.render().indexOf('<li><input type="checkbox"><span>repair van</span></li>') > -1);
       test.done();
     },
 
     "should render done items": function (test) {
       this.list.add("repair van");
       this.list.complete("repair van");
-      test.ok(this.list.render().indexOf('<label><input type="checkbox" checked><span>repair van</span></label>') > -1);
+      test.ok(this.list.render().indexOf('<li><input type="checkbox" checked><span>repair van</span></li>') > -1);
       test.done();
     }
   }

@@ -19,7 +19,7 @@ if (typeof module === 'object' && typeof require === 'function') {
     },
     
     updateDOM: function () {
-      $('<label><input type="checkbox"><span>' + this.todo + '</span></label>').hide().prependTo("#todo").slideDown(300);
+      $('<li><input type="checkbox"><span>' + this.todo + '</span></li>').hide().prependTo("#todo").slideDown(300);
     }
   });
 

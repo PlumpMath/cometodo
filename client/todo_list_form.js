@@ -11,7 +11,7 @@ var CT = CT || {};
   }
   
   function complete_todo() {
-    var text = $(this).closest("label").find("span").text();
+    var text = $(this).closest("li").find("span").text();
     var event = CT.events.complete_todo.create(text);
     CT.event_handler.register(event);
   }

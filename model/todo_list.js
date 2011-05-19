@@ -6,11 +6,11 @@ if (typeof module === 'object' && typeof require === 'function') {
 
 (function () {
   function renderTodoItem (item) {
-    return '<label><input type="checkbox"><span>' + item + '</span></label>';
+    return '<li><input type="checkbox"><span>' + item + '</span></li>';
   }
 
   function renderDoneItem (item) {
-    return '<label><input type="checkbox" checked><span>' + item + '</span></label>';
+    return '<li><input type="checkbox" checked><span>' + item + '</span></li>';
   }
 
   CT.todo_list = {
@@ -42,12 +42,12 @@ if (typeof module === 'object' && typeof require === 'function') {
 
     renderTodos: function () {
       var items = _.map(this.todo_items, renderTodoItem).join("");
-      return '<div id="todo" class="todos">' + items + '</div>'
+      return '<ul id="todo" class="todos">' + items + '</ul>'
     },
 
     renderDone: function () {
       var items = _.map(this.done_items, renderDoneItem).join("");
-      return '<div id="done" class="todos">' + items + '</div>'
+      return '<ul id="done" class="todos">' + items + '</ul>'
     },
 
     render: function () {

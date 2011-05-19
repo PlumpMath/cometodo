@@ -3,19 +3,19 @@ body {background: url(/images/bg.gif);}
 #logo {margin: 20px 0;}
 #newTodoText {font-size: 20px; width: 423px; padding: 5px; display: block; margin: 0 auto;}
 .todos {text-align: left; margin-top: 20px;}
-.todos label {display: block;}
+.todos li {display: block;}
 .todos input {float: left; margin-right: 10px;}
 .todos span {float: left; width: 375px;}
 #todo {font-size: 20px; background: url(/images/todo.gif); margin: 0; padding: 0 0 20px 0; border-bottom: 1px solid #000;}
-#todo label {margin: 0 auto; width: 400px; border-top: 1px solid #fff; border-bottom: 1px solid #ccc; padding: 5px 20px;}
+#todo li {margin: 0 auto; width: 400px; border-top: 1px solid #fff; border-bottom: 1px solid #ccc; padding: 5px 20px;}
 #todo input {margin-top: 5px;}
 #done {padding: 20px; background: url(/images/done.gif) repeat-x; margin: 0; min-height: 280px;}
-#done label {margin: 0 auto; width: 400px; color: #333;}
+#done li {margin: 0 auto; width: 400px; color: #333;}
 #done input {margin-top: 1px;}
 
-.todos label:after,
+.todos li:after,
 .clearfix:after {visibility: hidden;display: block;font-size: 0;content: " ";clear: both;height: 0;}
-* html .todos label,
+* html .todos li,
 * html .clearfix             { zoom: 1; } /* IE6 */
-*:first-child+html .todos label,
+*:first-child+html .todos li,
 *:first-child+html .clearfix { zoom: 1; } /* IE7 */

@@ -26,8 +26,8 @@ modelTestCase("TestCompleteTodoEvent", module, {
     setUp: function () {
       /*:DOC += 
         <div>
-          <div id='todo'><label>jam along</label></div>
-          <div id='done'></div>
+          <ul id='todo'><li>jam along</li></ul>
+          <ul id='done'></ul>
         </div>
       */
       this.event = CT.events.complete_todo.create("jam along");
@@ -35,15 +35,15 @@ modelTestCase("TestCompleteTodoEvent", module, {
     
     "test should move item to #done": function () {
       this.event.updateDOM();
-      assertEquals(0, $("#todo label").length);
-      assertEquals(1, $("#done label").length);
+      assertEquals(0, $("#todo li").length);
+      assertEquals(1, $("#done li").length);
     },
     
     "test shouldn't be confused by similar items": function () {
-      $("<label>bring jam along</label>").appendTo("#todo");
+      $("<li>bring jam along</li>").appendTo("#todo");
       this.event.updateDOM();
-      assertEquals(1, $("#todo label").length);
-      assertEquals(1, $("#done label").length);
+      assertEquals(1, $("#todo li").length);
+      assertEquals(1, $("#done li").length);
     }
     
   }

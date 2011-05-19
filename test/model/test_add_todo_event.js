@@ -36,7 +36,7 @@ modelTestCase("add todo event", module, {
     },
 
     "test should add to top": function () {
-      $("<label id='old'></label>").appendTo("#todo");
+      $("<li id='old'></li>").appendTo("#todo");
       CT.events.add_todo.create("new").updateDOM();
       assertEquals(1, $("#old").prevAll().length);
     }

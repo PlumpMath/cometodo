@@ -50,38 +50,6 @@ module.exports = testCase({
       test.ok(err);
       test.done();
     });
-  },
-
-  "should serve template": function (test) {
-    var response = {
-      writeHead: function (code, headers) {
-        test.equals(200, code);
-        test.equals("text/html", headers["Content-Type"]);
-      },
-      write: function (html) {
-        test.equals('Hello {{name}}!', html);
-      },
-      end: function () {
-        test.done();
-      }
-    };
-    this.templates.serve('template', {}, response);
-  },
-
-  "serve should fail with 500": function (test) {
-    var response = {
-      writeHead: function (code, headers) {
-        test.equals(500, code);
-      },
-      write: function (html) {
-        test.ok(html);
-      },
-      end: function () {
-        test.done();
-      }
-    };
-    this.templates.serve('unknown_file', {}, response);
   }
-
 
 });

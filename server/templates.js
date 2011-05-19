@@ -35,8 +35,6 @@ module.exports = {
   },
   
   serve: function (template_name, obj, response) {
-    this.load(template_name, obj, serveContentsCallback(response, {
-      "Content-Type": "text/html"
-    }));
+    this.load(template_name, obj, serveContentsCallback(response));
   }
 };

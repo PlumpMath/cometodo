@@ -35,8 +35,9 @@
       test.done();
     },
     
-    "file found: should respond with contents in binary": function (test) {
+    "file found: should respond with contents in fileEncoding": function (test) {
       var response = createDummyResponse(test);
+      response.fileEncoding = 'binary';
       serveExistingFile(response, [null, 'file']);
       test.calledWith(response.write, 'file', 'binary');
       test.done();

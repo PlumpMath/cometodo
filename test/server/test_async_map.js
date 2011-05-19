@@ -3,11 +3,11 @@
 
 require('sinon-nodeunit');
 var testCase = require('sinon-nodeunit/deps/nodeunit').testCase;
-var parallellize = require('parallellize');
+var async = require('async');
 
 module.exports = testCase({
   "should call back with empty list": function (test) {
-    parallellize(function () {
+    async.map(function () {
       test.fail("should never call iterator with empty list");
     }, [], function () {
       test.done();
@@ -17,7 +17,7 @@ module.exports = testCase({
   "should give return values in same order as list": function (test) {
     var callbacks = [];
 
-    parallellize(function (x, callback) {
+    async.map(function (x, callback) {
       callbacks.push(function () {
         callback(null, x * x);
       });

@@ -1,6 +1,6 @@
 var _ = require('underscore');
 
-function parallellize(func, list, callback) {
+function map(func, list, callback) {
   if (list.length === 0) {
     return callback(null, []);
   }
@@ -21,4 +21,6 @@ function parallellize(func, list, callback) {
   });
 }
 
-module.exports = parallellize;
+module.exports = {
+  map: map
+};

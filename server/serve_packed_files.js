@@ -1,6 +1,6 @@
 var fs = require('fs');
 var _ = require('underscore');
-var parallellize = require('./parallellize');
+var async = require('./async');
 var serveContentsCallback = require('./serve_contents_callback');
 
 function join(array) {
@@ -17,7 +17,7 @@ function loadFilesFromDir(directory, filter, callback) {
   fs.readdir(directory, function (err, file_names) {
     var file_names = _.select(file_names, filter);
     var file_paths = map_file_names_to_file_paths(file_names, directory);
-    parallellize(fs.readFile, file_paths, callback);
+    async.map(fs.readFile, file_paths, callback);
   });
 }
 
@@ -37,7 +37,7 @@ function matchRegexpCallback(regexp) {
 
 var servePackedFiles = function (dirs, filter_regexp, response) {
   var filter = matchRegexpCallback(filter_regexp);
-  parallellize(function (directory, callback) {
+  async.map(function (directory, callback) {
     loadFilesFromDir(directory, filter, callback);
   }, dirs, packAndServeContentsCallback(response));
 };

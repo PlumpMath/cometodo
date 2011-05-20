@@ -39,11 +39,10 @@ modelTestCase("add todo item", module, {
     },
     
     "should escape html": function (test) {
-      var nasty = this.todo_item.create("<script>");
-      test.equals('&lt;script>', nasty.escapedText());
+      var nasty = this.todo_item.create("<script></script>");
+      test.equals('&lt;script>&lt;/script>', nasty.escapedText());
       test.done();
     },
-    
     
   },
   

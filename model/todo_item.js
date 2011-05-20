@@ -19,7 +19,7 @@ var CT = this.CT || {};
     },
     
     escapedText: function () {
-      return this.text.replace('<', '&lt;');
+      return this.text.replace(/</g, '&lt;');
     }
   };
 

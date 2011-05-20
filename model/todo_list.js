@@ -21,7 +21,7 @@ if (typeof module === 'object' && typeof require === 'function') {
       return self; 
     },
 
-    add: function (item) {
+    add: function (item) { // .add('buy coke')
       this.todo_items.unshift(item);
     },
 

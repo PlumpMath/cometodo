@@ -1,5 +1,6 @@
 TODO
 ====
+ * Template både på client og server?
 
 Ideen er:
 ---------

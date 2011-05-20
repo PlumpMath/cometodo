@@ -2,51 +2,51 @@ var CT = this.CT || {};
 
 if (typeof module === 'object' && typeof require === 'function') {
   var _ = require('underscore');
+  var todo_item = require('./todo_item');
 }
 
 (function () {
-  function renderTodoItem (item) {
-    return '<li><input type="checkbox"><span>' + item + '</span></li>';
-  }
-
-  function renderDoneItem (item) {
-    return '<li><input type="checkbox" checked><span>' + item + '</span></li>';
-  }
-
   CT.todo_list = {
     create: function () {
       var self = Object.create(this);
       self.todo_items = [];
-      self.done_items = [];
       return self; 
     },
 
-    add: function (item) { // .add('buy coke')
-      this.todo_items.unshift(item);
+    add: function (text) {
+      this.todo_items.unshift(todo_item.create(text));
     },
 
-    isTodo: function (item) {
-      return this.todo_items.indexOf(item) > -1;
-    },
-
-    complete: function (item) {
-      this.done_items.unshift(item);
-      this.todo_items = _.reject(this.todo_items, function (i) {
-        return i === item;
+    getTodo: function (text) {
+      return _.find(this.todo_items, function (todo) {
+        return todo.text === text;
       });
     },
 
-    isComplete: function (item) {
-      return this.done_items.indexOf(item) > -1;
+    isTodo: function (text) {
+      var todo = this.getTodo(text);
+      return todo && !todo.isComplete;
+    },
+
+    complete: function (text) {
+      var todo = this.getTodo(text);
+      if (todo) {
+        todo.complete();
+      }
+    },
+
+    isComplete: function (text) {
+      var todo = this.getTodo(text);
+      return todo && todo.isComplete;
     },
 
     renderTodos: function () {
-      var items = _.map(this.todo_items, renderTodoItem).join("");
+      var items = _.invoke(this.todo_items, 'render').join("");
       return '<ul id="todo" class="todos">' + items + '</ul>'
     },
 
     renderDone: function () {
-      var items = _.map(this.done_items, renderDoneItem).join("");
+      var items = _.invoke(this.todo_items, 'render').join("");
       return '<ul id="done" class="todos">' + items + '</ul>'
     },
 

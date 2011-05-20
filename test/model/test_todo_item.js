@@ -36,7 +36,14 @@ modelTestCase("add todo item", module, {
       this.open_a_bar.complete();
       test.equals('<li><input type="checkbox" checked><span>open a bar</span></li>', this.open_a_bar.render());
       test.done();
-    }
+    },
+    
+    "should escape html": function (test) {
+      var nasty = this.todo_item.create("<script>");
+      test.equals('&lt;script>', nasty.escapedText());
+      test.done();
+    },
+    
     
   },
   

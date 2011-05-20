@@ -11,11 +11,15 @@ var CT = this.CT || {};
   
     render: function () {
       var checked = this.isComplete ? ' checked' : '';
-      return '<li><input type="checkbox"' + checked + '><span>' + this.text + '</span></li>';
+      return '<li><input type="checkbox"' + checked + '><span>' + this.escapedText() + '</span></li>';
     },
   
     complete: function () {
       this.isComplete = true;
+    },
+    
+    escapedText: function () {
+      return this.text.replace('<', '&lt;');
     }
   };
 

@@ -19,7 +19,8 @@ if (typeof module === 'object' && typeof require === 'function') {
     },
     
     updateDOM: function () {
-      $('<li><input type="checkbox"><span>' + this.todo + '</span></li>').hide().prependTo("#todo").slideDown(300);
+      var todo_item = CT.todo_item.create(this.todo);
+      $(todo_item.render()).hide().prependTo("#todo").slideDown(300);
     }
   });
 

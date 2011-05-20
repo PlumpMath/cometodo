@@ -35,7 +35,22 @@ modelTestCase("todo list", module, {
       );
       test.done();
     },
+    
+    "should find todos": function (test) {
+      var van = this.list.add("Repair van");
+      this.list.add("Repair mac").complete();
+      test.same([van], this.list.getAllTodos());
+      test.done();
+    },
 
+    "should find complete": function (test) {
+      this.list.add("Repair van");
+      var mac = this.list.add("Repair mac");
+      mac.complete();
+      test.same([mac], this.list.getAllComplete());
+      test.done();
+    },
+  
     "should render todo items": function (test) {
       this.list.add("repair van");
       test.ok(this.list.render().indexOf('<li><input type="checkbox"><span>repair van</span></li>') > -1);
@@ -47,6 +62,15 @@ modelTestCase("todo list", module, {
       this.list.complete("repair van");
       test.ok(this.list.render().indexOf('<li><input type="checkbox" checked><span>repair van</span></li>') > -1);
       test.done();
-    }
+    },
+    
+    "should render items just once": function (test) {
+      this.list.add("repair van");
+      this.list.complete("repair van");
+      var html = this.list.render();
+      test.equal(html.indexOf("repair van"), html.lastIndexOf("repair van"));
+      test.done();
+    },
+    
   }
 });

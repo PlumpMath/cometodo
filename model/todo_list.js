@@ -14,12 +14,26 @@ if (typeof module === 'object' && typeof require === 'function') {
     },
 
     add: function (text) {
-      this.todo_items.unshift(todo_item.create(text));
+      var new_item = todo_item.create(text);
+      this.todo_items.unshift(new_item);
+      return new_item;
     },
 
     getTodo: function (text) {
       return _.find(this.todo_items, function (todo) {
         return todo.text === text;
+      });
+    },
+    
+    getAllTodos: function()  {
+      return _.filter(this.todo_items, function (todo) {
+        return !todo.isComplete;
+      });
+    },
+
+    getAllComplete: function()  {
+      return _.filter(this.todo_items, function (todo) {
+        return todo.isComplete;
       });
     },
 
@@ -41,12 +55,12 @@ if (typeof module === 'object' && typeof require === 'function') {
     },
 
     renderTodos: function () {
-      var items = _.invoke(this.todo_items, 'render').join("");
+      var items = _.invoke(this.getAllTodos(), 'render').join("");
       return '<ul id="todo" class="todos">' + items + '</ul>'
     },
 
     renderDone: function () {
-      var items = _.invoke(this.todo_items, 'render').join("");
+      var items = _.invoke(this.getAllComplete(), 'render').join("");
       return '<ul id="done" class="todos">' + items + '</ul>'
     },
 

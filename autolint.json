@@ -1,0 +1,10 @@
+{
+  "paths": [
+    "client/**/*.js",
+    "server/**/*.js",
+    "model/**/*.js"
+  ],
+  "options": {
+    "node": true
+  }
+}
